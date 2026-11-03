@@ -20,9 +20,11 @@ class MovieService {
   };
 
   getTrandingMovies = async () => {
-    return this.getResource(
+    const response = await this.getResource(
       `${this._apiBase}/movie/top_rated?${this._apiLang}${this._apiKey}`
     );
+    const movies = response.results;
+    return movies && movies.map((movie) => this._transformMovie(movie));
   };
 
   getDetailMovies = async (id) => {
@@ -44,6 +46,8 @@ class MovieService {
       backdrop_path: `${this._apiImg}${movie.backdrop_path}`,
       poster_path: `${this._apiImg}${movie.poster_path}`,
       id: movie.id,
+      release_date: movie.release_date,
+      vote_average: movie.vote_average,
     };
   };
 }
