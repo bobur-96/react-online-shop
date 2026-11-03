@@ -3,7 +3,7 @@ import "./row-movies-item.scss";
 const RowMoviesItem = ({ movie, onToggleOpen }) => {
   return (
     <div className="movieitem" onClick={onToggleOpen}>
-      <img src={movie.poster_path} alt={movie.title} />
+      <img src={movie.poster_path} alt={movie.name} />
 
       <h2>
         {movie.name.length > 18 ? `${movie.name.slice(0, 18)}...` : movie.name}

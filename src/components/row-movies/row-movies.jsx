@@ -47,7 +47,7 @@ class RowMovies extends React.Component {
           {movies.map((movie) => (
             <RowMoviesItem
               key={movie.id}
-              movie={{ movie }}
+              movie={{ ...movie }}
               onToggleOpen={this.onToggleOpen}
             />
           ))}
