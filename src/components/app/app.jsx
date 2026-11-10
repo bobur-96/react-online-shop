@@ -1,3 +1,4 @@
+import ErrorBoundry from "../error-boundry/error-boundry";
 import Hero from "../hero/hero";
 import Navbar from "../navbar/navbar";
 import RowMovies from "../row-movies/row-movies";
@@ -7,7 +8,9 @@ const App = () => {
     <div className="app">
       <Navbar />
       <Hero />
-      <RowMovies />
+      <ErrorBoundry>
+        <RowMovies />
+      </ErrorBoundry>
     </div>
   );
 };
